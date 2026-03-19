@@ -3,10 +3,10 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{}:{}@{}/{}'.format(
-    os.getenv('DB_USER', 'root'),
-    os.getenv('DB_PASSWORD', '12345'),
-    os.getenv('DB_HOST', 'mysql'),
-    os.getenv('DB_NAME', 'flask')
+    os.getenv('DB_USER'),
+    os.getenv('DB_PASSWORD'),
+    os.getenv('DB_HOST'),
+    os.getenv('DB_NAME')
 )
 db = SQLAlchemy(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
