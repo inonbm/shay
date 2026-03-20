@@ -1,15 +1,16 @@
 name: Docker CI
+
 on:
   push:
     branches: [ "main" ]
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   test-environment:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Create .env file
         run: |
