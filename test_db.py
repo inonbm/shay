@@ -3,13 +3,12 @@ import pymysql
 
 def test_connection():
     print("Testing connection to the database...")
-    
-    db_host = os.environ.get("DB_HOST")
-    db_user = os.environ.get("DB_USER")
-    db_password = os.environ.get("DB_PASSWORD")
-    db_name = os.environ.get("DB_NAME")
+    db_host = os.environ.get("DB_HOST", "mysql")
+    db_user = os.environ.get("DB_USER", "root")
+    db_password = os.environ.get("DB_PASSWORD", "12345")
+    db_name = os.environ.get("DB_NAME", "flask")
 
-try:
+    try:
         connection = pymysql.connect(
             host=db_host,
             user=db_user,
@@ -19,7 +18,7 @@ try:
         print("SUCCESS: The Python server is connected to MySQL!")
         connection.close()
 
-except Exception as e:
+    except Exception as e:
         print("ERROR: Failed to connect to the database.")
         print(f"Details: {e}")
         exit(1)
