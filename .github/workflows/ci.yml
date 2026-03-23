@@ -25,9 +25,8 @@ jobs:
       - name: Verify containers are running
         run: docker ps -a
 
-      - name: turn on containers
-        run: docker compose up -d --build
+      - name: Wait for database to be ready
+        run: sleep 20
 
-      - name: testing connection app to db
-        run: docker compose exec app python test_db.py
-
+      - name: Run Python Integration Test
+        run: docker compose exec -T app python test_db.py
