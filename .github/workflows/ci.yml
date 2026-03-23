@@ -24,3 +24,10 @@ jobs:
 
       - name: Verify containers are running
         run: docker ps -a
+      
+      - name: turn on containers
+        run: docker compose up -d --build
+
+      -name: testing connection app to db
+       run: docker compose exec app python test_db.py
+
