@@ -15,7 +15,7 @@ def test_connection():
             password=db_password,
             database=db_name
         )
-        print("SUCCESS: The Python server is connected to MySQL!")
+        print("SUCCESS: The Python server is connected to MySQL!!")
         connection.close()
 
     except Exception as e:
